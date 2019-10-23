@@ -1,7 +1,7 @@
 import numpy as np
 
-from distance.npversion import distance
-from util import sign
+from ..distance.npversion import distance
+from ..util import sign
 
 
 # optimized

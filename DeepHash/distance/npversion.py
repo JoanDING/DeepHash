@@ -1,11 +1,11 @@
 import numpy as np
 import sys
-import util
+from ..util import *
 
 def norm(x, keepdims=False):
     '''
-    Param: 
-        x: matrix of shape (n1, n2, ..., nk) 
+    Param:
+        x: matrix of shape (n1, n2, ..., nk)
         keepdims: Whether keep dims or not
     Return: norm of matrix of shape (n1, n2, ..., n_{k-1})
     '''
@@ -28,7 +28,7 @@ def averaged_euclidean2(x1, x2):
     return np.mean(np.square(x1 - x2), axis=-1)
 
 def averaged_euclidean(x1, x2):
-    return np.sqrt(averaged_euclidean2(x1, x2)) 
+    return np.sqrt(averaged_euclidean2(x1, x2))
 
 def normed_euclidean2(x1, x2):
     return euclidean2(normed(x1), normed(x2))
@@ -79,7 +79,7 @@ if __name__ == "__main__":
                          [ 2.        ,  0.58578644,  0.58578644]]))
     assert distance(x1, x2, pair=True, dist_type="cosine").shape == (4, 3)
     assert distance(x1, x2, pair=True, dist_type="inner_product").shape == (4, 3)
-   
+
     assert np.all(distance(x1, x1[::-1], pair=False, dist_type="euclidean2") == np.array([4, 8, 8, 4]))
     myAssert(distance(x1, x1[::-1], pair=False, dist_type="normed_euclidean2"), np.array([ 0.36700684,  1.,  1.,  0.36700684]))
     myAssert(distance(x1, x1[::-1], pair=False, dist_type="cosine"), np.array([ 0.09175171,  0.25,  0.25,  0.09175171]))

@@ -1,5 +1,6 @@
 from .dtq import DTQ
 from .util import Dataset
+import pdb
 
 def train(train_img, database_img, query_img, config):
     model = DTQ(config)

@@ -1,6 +1,6 @@
 import numpy as np
 import math
-from distance.npversion import distance
+from ...distance.npversion import distance
 
 class Dataset(object):
     def __init__(self, dataset, output_dim, code_dim):

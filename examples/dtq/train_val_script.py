@@ -1,8 +1,10 @@
+import sys
+sys.path.append("../..")
 import numpy as np
 import scipy.io as sio
 import warnings
-import data_provider.image as dataset
-import model.dtq as model
+import DeepHash.data_provider.image as dataset
+import DeepHash.model.dtq as model
 from pprint import pprint
 import os
 import argparse
@@ -23,7 +25,7 @@ parser.add_argument('--subspace', default=4, type=int)
 parser.add_argument('--subcenter', default=256, type=int)
 parser.add_argument('--dataset', default='cifar10', type=str,
                     choices=['cifar10', 'coco', 'nuswide_81'])
-parser.add_argument('--gpus', default='0', type=str)
+parser.add_argument('--gpus', default='1', type=str)
 parser.add_argument('--log-dir', default='tflog', type=str)
 parser.add_argument('--dist-type', default='euclidean2', type=str,
                     choices=['euclidean2', 'cosine', 'inner_product', 'euclidean'])
@@ -47,7 +49,7 @@ parser.add_argument('--code-batch-size', default=500, type=int)
 parser.add_argument('--n-part', default=20, type=int)
 parser.add_argument('--triplet-thresold', default=64000, type=int)
 parser.add_argument('--save-dir', default="./models/", type=str)
-parser.add_argument('--data-dir', default="~/data/", type=str)
+parser.add_argument('--data-dir', default="/storage/yjding/DeepHash/data/", type=str)
 parser.add_argument('-e', '--evaluate', dest='evaluate', action='store_true')
 parser.add_argument('--val-freq', default=1, type=int)
 
